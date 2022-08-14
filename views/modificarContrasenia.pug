@@ -1,0 +1,40 @@
+extends layout
+
+block content
+
+	<div class="container-fluid">
+
+		<div class="row"><div class="col-3"></div>
+			<div class="col-6">
+				<h1>Modificar contraseña</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-3"></div>
+			<div class="col-6">	
+
+				<form method="post" action="./modificarContrasenia" id="formulario">
+					<div class="form-group">
+						<div class="row">
+							<div class="col-3"><label>Contrase&ntilde;a actual:</label></div>
+							<div class="col-7"><input id="claveActual" name="claveActual" type="password" class="form-control" required="required"/></div>
+							<div class="col-3"><label>Contrase&ntilde;a nueva:</label></div>
+							<div class="col-7"><input id="claveNueva" name="claveNueva" type="password" class="form-control" required="required"/></div>
+							<div class="col-3"><label>Repeti la contrase&ntilde;a nueva:</label></div>
+							<div class="col-7"><input id="claveRepetir" name="claveRepetir" type="password" class="form-control" required="required"/></div>
+							<div class="col-3"></div>
+							<div class="col-7"><input type="submit" class="btn btn-outline-success" value="Ingresar" class="form-control"/></div>
+
+						</div>
+					</div>
+				</form>
+				<form method="get" action="./inicioPaciente">
+					<div class="col-7"><input type="submit" class="btn btn-warning" value="Ir al inicio" class="form-control"/></div>
+				</form>
+				<span name="nuevaclave">#{resultado}</span>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./javascripts/validarCambioclave.js"></script>

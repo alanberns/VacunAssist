@@ -1,0 +1,51 @@
+doctype html
+html
+  head
+    title= title
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.css">
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    <link rel="stylesheet" type="text/css" href="./stylesheets/vacunAssist.css">
+    <script src="./jquery/jquery.js"></script>
+  body
+    <!--- nabvar --->
+    <div class="container-fluid">
+      <div class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid" id="navbar">
+            <a class="navbar-brand">
+              <img src="./images/VacunAssistimg.jpeg" onclick="document.forms[`inicio`].submit();" style="width: 8vw; height: 12vh;">
+            </a>
+            <form id="inicio" method="get" action="./"></form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </nav>
+      </div>
+      <br><br><br><br><br><br>
+
+
+    block content
+
+    <!--- footer --->
+    <footer>
+      <div class="fixed-bottom">
+        <nav class="navbar fixed-bottom navbar-light bg-light">
+          <div class="container-fluid">
+            <div class="navbar-brand" href="#">Centros de vacunacion:</div>
+            <span> 1 Zona terminal</span><br>
+            <span>2 Plaza Moreno</span><br>
+            <span>3 Zona cementerio</span><br>
+          </div>
+        </nav>
+        
+      </div>
+    </footer>
+
+      <script src="./bootstrap/js/bootstrap.bundle.js"></script>
+
+      block script
+
+    </div>

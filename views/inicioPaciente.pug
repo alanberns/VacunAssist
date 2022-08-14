@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+    <div class="container-fluid">
+        <br> <br>
+        <div class="row">
+            <h1 class="text-center"> Bienvenido </h1>
+            <form method="get" action="./misDatos">
+                <div class="col-7"><input type="submit" class="btn btn-warning" value="Mis datos" class="form-control"/></div>
+            </form> 
+            <br><br><br><br>
+            <form method="get" action="./modificarContrasenia">
+                <div class="col-7"><input type="submit" class="btn btn-warning" value="Cambiar contraseña" class="form-control"/></div>
+            </form>
+            <br><br><br><br>
+            <form method="get" action="./turnosyCertificados">
+                <div class="col-7"><input type="submit" class="btn btn-warning" value="Mis turnos y certificados de vacunas aplicadas" class="form-control"/></div>
+            </form>
+            <br><br><br><br>
+            <form method="get" action="./modificarMail">
+                <div class="col-7"><input type="submit" class="btn btn-warning" value="Cambiar mail" class="form-control"/></div>
+            </form>
+        </div>
+    </div>

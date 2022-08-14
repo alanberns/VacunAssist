@@ -1,0 +1,80 @@
+extends layoutSinlog
+
+block content
+
+  <div class="row"><div class="col-3"></div>
+    <div class="col-6">
+      <h1>Registrarse</h1>
+    </div>
+  </div>
+
+  <div class="row"><div class="col-12">&nbsp;</div></div>
+
+  <div class="row">
+    <div class="col-1 col-md-3"></div>
+    <div class="col-10 col-md-6">
+
+      <form method="post" action="./registroPasoDos" id="formulario">
+        <div class="form-group">
+          <div class="row align-items-center">
+
+            <div class="col-10"><h5>Datos sobre vacunas:</h5></div>
+            <div class="col-12">&nbsp;</div>
+
+            <div class="col-12"><input type="checkbox" name="esRiesgo" class="form-check-input"/>
+            <label class="form-check-label">&#191;Es paciente de riesgo&#63;</label></div>
+            <div class="col-12">&nbsp;</div><div class="col-12">&nbsp;</div>
+
+            <div class="col-12"><input type="checkbox" name="vacunaCovid" class="form-check-input" id="checkCovid"/>
+            <label class="form-check-label">&#191;Se dio la vacuna contra la Covid&#63;</label></div>
+            <div id="divCovid"><div class="row align-items-center">
+              <div class="col-12 col-md-3"><label>Fecha &uacute;ltima dosis:</label></div>
+              <div class="col-12 col-md-7"><input name="fechaCovid" type="text" placeholder="dd/mm/AAAA" class="form-control" id="fechaCovid" required="required"/></div>
+              <div class="col-12">&nbsp;</div>
+            </div></div>
+            <div class="col-12">&nbsp;</div>
+
+            <div class="col-12"><input type="checkbox" name="vacunaGripe" class="form-check-input" id="checkGripe"/>
+            <label class="form-check-label">&#191;Se dio la vacuna contra la gripe&#63;</label></div>
+            <div id="divGripe"><div class="row align-items-center">
+              <div class="col-12 col-md-3"><label>Fecha &uacute;ltima dosis:</label></div>
+              <div class="col-12 col-md-7"><input name="fechaGripe" type="text" placeholder="dd/mm/AAAA" class="form-control" id="fechaGripe" required="required"/></div>
+              <div class="col-12">&nbsp;</div>
+            </div></div>
+            <div class="col-12">&nbsp;</div>
+
+            <div class="col-12"><input type="checkbox" name="vacunaAmarilla" class="form-check-input" id="checkAmarilla"/>
+            <label class="form-check-label">&#191;Se dio la vacuna contra la fiebre amarilla&#63;</label></div>
+            <div id="divAmarilla"><div class="row align-items-center">
+              <div class="col-12 col-md-3"><label>Fecha &uacute;ltima dosis:</label></div>
+              <div class="col-12 col-md-7"><input name="fechaAmarilla" type="text" placeholder="dd/mm/AAAA" class="form-control" id="fechaAmarilla" required="required"/></div>
+              <div class="col-12">&nbsp;</div>
+            </div></div>
+            <div class="col-12">&nbsp;</div>
+
+            <div class="col-12 col-md-3"></div>
+            <div class="col-12 col-md-7">
+              <input type="submit" class="btn btn-outline-success" value="Terminar Registro" class="form-control"/>
+              <button type="button" class="btn btn-outline-danger" onclick="document.forms[`cancelar`].submit();">Cancelar</button>
+            </div>
+
+            <div hidden="hidden">
+              <input type="text" name="nombre" value="#{reque.nombre}"/>
+              <input type="text" name="apellido" value="#{reque.apellido}"/>
+              <input type="text" name="dni" value="#{reque.dni}"/>
+              <input type="text" name="fechaNac" value="#{reque.fechaNac}"/>
+              <input type="text" name="centro" value="#{reque.centro}"/>
+              <input type="text" name="email" value="#{reque.email}"/>
+              <input type="text" name="clave" value="#{reque.clave}"/>
+            </div>
+
+          </div>
+        </div>
+      </form>
+
+      <form id="cancelar" method="post" action="./"></form>
+
+    </div>
+    <div class="col-1 col-md-3"></div>
+
+    <script src="./javascripts/validarRegistroPasoDos.js"></script>

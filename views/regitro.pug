@@ -1,0 +1,75 @@
+extends layout
+
+block content
+  <div class="container-fluid">
+
+    <div class="row"><div class="col-3"></div>
+      <div class="col-6">
+        <h1>Registrarse</h1>
+      </div>
+    </div>
+
+  <div class="row"><div class="col-12">&nbsp;</div></div>
+
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+
+      <form method="post" action="./registroPasoDos">
+        <div class="form-group">
+          <div class="row">
+          
+            <div class="col-10"><h5>Informaci&oacute;n B&aacute;sica:</h5></div>
+            <div class="col-12">&nbsp;</div>
+
+            <div class="col-3"><label>Nombre:</label></div>
+            <div class="col-7"><input name="nombre" type="text" class="form-control"/></div>
+            <div class="col-3"><label>Apellido:</label></div>
+            <div class="col-7"><input name="apellido" type="text" class="form-control"/></div>
+            <div class="col-3"><label>DNI:</label></div>
+            <div class="col-7"><input name="dni" type="number" class="form-control"/></div>
+            <div class="col-3"><label>Fecha Nacimiento:</label></div>
+            <div class="col-7"><input name="fechaNac" type="date" placeholder="dd/mm/AAAA" class="form-control"/></div>
+            <div class="col-3"><label>Genero:</label></div>
+            <div class="col-7">
+                <select name="genero" class="form-control">
+                <option value="" selected="selected"> Seleccione uno </option>
+                <option value="f"> Femenino </option>
+                <option value="m"> Masculino </option>
+                <option value= "nb"> No binario </option>
+                </select>
+            </div>
+            <div class="col-3"><label>Centro Preferencia:</label></div>
+            <div class="col-7">
+              <select name="origen" class="form-control">
+                <option value="" selected="selected">Seleccione uno</option>
+                <option value="1">Zona Terminal</option>
+                <option value="2">Plaza Moreno</option>
+                <option value="3">Zona Cementerio</option>
+              </select>
+          
+            <div class="col-12">&nbsp;</div>
+            <div class="col-10"><h5>Estos ser&aacute;n sus datos de usuario:</h5></div>
+            <div class="col-12">&nbsp;</div>
+
+            <div class="col-3"><label>E-Mail:</label></div>
+            <div class="col-7"><input name="email" type="email" class="form-control"/></div>
+            <div class="col-3"><label>Contrase&ntilde;a:</label></div>
+            <div class="col-7"><input name="clave" type="password" class="form-control"/></div>
+            <div class="col-3"><label>Repita la Contrase&ntilde;a:</label></div>
+            <div class="col-7"><input name="clave2" type="password" class="form-control"/></div>
+            <div class="col-12"><label>&nbsp;</label></div>
+
+            <div class="col-3"></div>
+            <div class="col-7">
+              <input type="submit" class="btn btn-outline-success" value="Siguiente Paso" class="form-control"/>
+              <button type="button" class="btn btn-outline-danger" onclick="document.forms[`cancelar`].submit();">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <form id="cancelar" method="post" action="./"></form>
+
+    </div>
+    <div class="col-3"></div>

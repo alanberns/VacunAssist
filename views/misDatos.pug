@@ -1,0 +1,48 @@
+extends layout
+
+block content 
+
+	<div class="container-fluid">
+
+		<div class="row"><div class="col-3"></div>
+			<div class="col-6">
+				<h1>Mis datos</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-3"></div>
+			<div class="col-6">	
+
+				<form method="get" action="./misDatosModificar">
+					<div class="col-3"><span>E-Mail:</span></div>
+					<div class="col-7"><span id="email" >#{paciente.email}</span></div>
+					<div class="col-3"><span>Nombre:</span></div>
+					<div class="col-7"><span id="nombre">#{paciente.nombre}</span></div>
+					<div class="col-3"><span>Apellido:</span></div>
+					<div class="col-7"><span id="apellido">#{paciente.apellido}</span></div>
+					<div class="col-3"><span> DNI:</span></div>
+					<div class="col-7"><span id="dni" ></span>#{paciente.dni}</div>
+					<div class="col-3"><span>Fecha Nacimiento:</span></div>
+					<div class="col-7"><span name="fechaNacimiento">#{paciente.fechaNacimiento}</span></div>
+					<div class="col-3"><span>Genero:</span></div>
+					<div class="col-7"><span name="genero">#{paciente.genero}</span></div>
+					<div class="col-3"><span>Centro Preferencia:</span></div>
+					<div class="col-7"><span name="centro">#{paciente.centroId}</span></div><!--cambiar por nombre de centro-->
+					<div class="col-3"><span> Paciente de riesgo</span> </div>
+					<div class="col-7"></div><span name="esRiesgo">#{paciente.esRiesgo}</span></div>
+						<input type="submit" class="btn btn-outline-success" value="Modificar datos" class="form-control"/>
+
+
+				</form>
+				<form method="get" action="./inicioPaciente">
+					<div class="col-7"><input type="submit" class="btn btn-warning" value="Ir al inicio" class="form-control"/></div>
+				</form>
+
+
+
+				</div>
+			</div>
+
+
+	</div>

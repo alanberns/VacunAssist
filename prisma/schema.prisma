@@ -1,0 +1,134 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model paciente {
+  id              Int               @id @default(autoincrement())
+  email           String            @unique(map: "email") @db.VarChar(50)
+  nombre          String            @db.VarChar(40)
+  apellido        String            @db.VarChar(40)
+  esRiesgo        paciente_esRiesgo
+  fechaNacimiento DateTime          @db.Date
+  dni             Int               @unique(map: "dni")
+  token           Int
+  genero          paciente_genero
+  centroId        Int
+  clave           String            @db.VarChar(32)
+  centro          centro            @relation(fields: [centroId], references: [id], onUpdate: Restrict, map: "paciente_ibfk_1")
+  queja           queja[]
+  turno           turno[]
+  vacunasprevias  vacunasprevias[]
+
+  @@index([centroId], map: "centro")
+}
+
+model centro {
+  id             Int              @id @default(autoincrement())
+  nombre         String           @db.VarChar(50)
+  direccion      String           @db.VarChar(50)
+  administradorc administradorc[]
+  paciente       paciente[]
+  turno          turno[]
+}
+
+model administradorc {
+  email    String @id @db.VarChar(50)
+  nombre   String @db.VarChar(40)
+  apellido String @db.VarChar(40)
+  clave    String @db.VarChar(32)
+  centroId Int
+  centro   centro @relation(fields: [centroId], references: [id], onUpdate: Restrict, map: "administradorc_ibfk_1")
+
+  @@index([centroId], map: "centroId")
+}
+
+model administradorg {
+  email String @id @db.VarChar(50)
+  clave String @db.VarChar(32)
+}
+
+model queja {
+  id             Int              @id @default(autoincrement())
+  comentario     String           @db.VarChar(255)
+  fecha          DateTime         @db.Date
+  pacienteId     Int
+  paciente       paciente         @relation(fields: [pacienteId], references: [id], onUpdate: Restrict, map: "queja_ibfk_1")
+  quejatipoqueja quejatipoqueja[]
+
+  @@index([pacienteId], map: "pacienteId")
+}
+
+model quejatipoqueja {
+  motivoQueja String    @db.VarChar(30)
+  quejaId     Int
+  tipoqueja   tipoqueja @relation(fields: [motivoQueja], references: [motivo], onUpdate: Restrict, map: "quejatipoqueja_ibfk_1")
+  queja       queja     @relation(fields: [quejaId], references: [id], onUpdate: Restrict, map: "quejatipoqueja_ibfk_2")
+
+  @@id([motivoQueja, quejaId])
+  @@index([quejaId], map: "quejaId")
+}
+
+model tipoqueja {
+  motivo         String           @id @db.VarChar(30)
+  quejatipoqueja quejatipoqueja[]
+}
+
+model turno {
+  id            Int          @id @default(autoincrement())
+  fecha         DateTime     @db.Date
+  estado        turno_estado
+  observaciones String       @db.VarChar(255)
+  pacienteId    Int
+  vacunaId      Int
+  centroId      Int
+  centro        centro       @relation(fields: [centroId], references: [id], onUpdate: Restrict, map: "turno_ibfk_2")
+  paciente      paciente     @relation(fields: [pacienteId], references: [id], onUpdate: Restrict, map: "turno_ibfk_1")
+  vacuna        vacuna       @relation(fields: [vacunaId], references: [id], onUpdate: Restrict, map: "turno_ibfk_3")
+
+  @@index([centroId], map: "centroId")
+  @@index([pacienteId], map: "pacienteId")
+  @@index([vacunaId], map: "vacunaId")
+}
+
+model vacuna {
+  id             Int              @id @default(autoincrement())
+  nombre         String           @db.VarChar(25)
+  dosis          Int
+  turno          turno[]
+  vacunasprevias vacunasprevias[]
+}
+
+model vacunasprevias {
+  pacienteId Int
+  vacunaId   Int
+  fecha      DateTime @db.Date
+  paciente   paciente @relation(fields: [pacienteId], references: [id], onUpdate: Restrict, map: "vacunasprevias_ibfk_1")
+  vacuna     vacuna   @relation(fields: [vacunaId], references: [id], onUpdate: Restrict, map: "vacunasprevias_ibfk_2")
+
+  @@id([pacienteId, vacunaId])
+  @@index([vacunaId], map: "vacunaId")
+}
+
+enum paciente_esRiesgo {
+  Si
+  No
+}
+
+enum paciente_genero {
+  Masculino
+  Femenino
+  NoBinario
+}
+
+enum turno_estado {
+  Atendido
+  Confirmado
+  Ausente
+  Cancelado
+  A_confirmar @map("A confirmar")
+}

@@ -1,0 +1,49 @@
+extends layout 
+
+block content 
+
+    
+    //En esta vista se pueden ver turnos y estado de los mismos, y vacunas aplicadas 
+    //con boton para descargar certificado
+
+    <br>
+    <div class="container-fluid">
+        <div class="col-10">
+            <br> <br>
+            <h1 class="text-center"> Mis turnos y certificados </h1>
+        </div>
+        <br>
+        <div class="col-8">
+            <div class="row">
+                <h5> Tipo de vacuna: </h5>
+                <h6> Fecha: </h6>
+                <h6> Centro: </h6>
+                <h6> Estado: Atendido </h6>
+                //si el estado=atendido, entonces muestra:
+                <button class="btn btn-warning" onclick="generatePDF()"> Descargar certificado </button>
+                <script>
+                    function generatePDF() { var doc = new jsPDF(); doc.text("hola",10,10); doc.save("test");}
+                </script>
+            </div>
+            <br><br><br>
+            <div class="row">
+                <h5> Tipo de vacuna: </h5>
+                <h6> Fecha: </h6>
+                <h6> Centro: </h6>
+                <h6> Estado: Pendiente </h6>
+            </div>
+            <br><br><br>
+            <div class="row">
+                <h5> Tipo de vacuna: </h5>
+                <h6> Fecha: </h6>
+                <h6> Centro: </h6>
+                <h6> Estado: Asignado </h6>
+            </div>
+        </div>
+        
+        
+        <br><br><br><br><br>
+        <form method="get" action="./solicitarTurnoFiebreAmarilla">
+            <div class="col-7"><input type="submit" class="btn btn-info" value=" + Solicitar turno para vacuna contra la Fiebre amarilla" class="form-control"/></div>
+        </form>
+    </div>

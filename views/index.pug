@@ -1,0 +1,79 @@
+extends layoutSinlog
+
+block content
+
+  <div class="row"><div class="col-3"></div>
+    <div class="col-6">
+      <h1>VacunAssist Inicio</h1>
+    </div>
+  </div>
+
+  <div class="row"><div class="col-12">&nbsp;</div></div>
+
+  <div class="row">
+    <div class="col-1 col-md-3"></div>
+    <div class="col-10 col-md-6">
+
+
+      <form method="post" action="./iniciarSesion">
+        <div class="form-group">
+          <div class="row align-items-center">
+
+            <div class="col-12">&nbsp;</div>
+            <div class="col-10"><h5>Iniciar Sesi&oacute;n:</h5></div>
+            <div class="col-12">&nbsp;</div>
+
+            <div class="col-12 col-md-3"><label>E-Mail:</label></div>
+            <div class="col-12 col-md-7"><input name="email" type="email" class="form-control" required="required"/></div>
+            <div class="col-12">&nbsp;</div>
+            <div class="col-12 col-md-3"><label>Contrase&ntilde;a:</label></div>
+            <div class="col-12 col-md-7"><input name="clave" type="password" class="form-control" required="required"/></div>
+            <div class="col-12">&nbsp;</div>
+            <div class="col-12 col-md-3"><label>Token:</label></div>
+            <div class="col-12 col-md-7"><input name="token" type="password" class="form-control" required="required"/></div>
+            <div class="col-12">&nbsp;</div>
+            <div class="col-12 col-md-3"></div>
+            <div class="col-12 col-md-7"><input type="submit" class="btn btn-outline-success" value="Ingresar" class="form-control"/></div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-1 col-md-3"></div>
+
+    <div class="col-1 col-md-3"></div>
+    <div class="col-10 col-md-6">
+
+      <form method="post" action="./registroPasoUno">
+        <div class="form-group">
+          <div class="row">
+
+            <div class="col-12">&nbsp;</div>
+            <div class="col-12">&nbsp;</div>
+            <div class="col-10"><h5>¿No posee usuario?</h5></div>
+            <div class="col-12">&nbsp;</div>
+
+            <div class="col-12 col-md-3"></div>
+            <div class="col-12 col-md-7"><input type="submit" class="btn btn-outline-warning" value="Registrarse" class="form-control"/></div>
+          </div>
+        </div>
+      </form>
+
+      <form method="get" action="./recuperarClave">
+        <div class="form-group">
+          <div class="row">
+            
+            <div class="col-12">&nbsp;</div>
+            <div class="col-12">&nbsp;</div>
+            <div class="col-10"><h6>¿Olvidaste tu clave?</h6></div>
+            <div class="col-12">&nbsp;</div>
+            <div class="col-12 col-md-3"></div>
+            <div class="col-12 col-md-7"><input type="submit" class="btn btn-outline-warning" value="Olvide mi clave" class="form-control"/></div>
+
+          </div>
+          
+        </div>
+      </form>
+      
+    </div>
+    <div class="col-1 col-md-3"></div>
+  </div>
